@@ -1,6 +1,6 @@
 [package]
 org = "asitha"
-name = "proxy_service"
+name = "external_service"
 version = "0.1.0"
 distribution = "2201.2.3"
 
