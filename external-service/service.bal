@@ -7,8 +7,8 @@ http:Client clientEP = check new (endpointUrl);
 # bound to port `9090`.
 service / on new http:Listener(9090) {
 
-    resource function get proxy(string name) returns json|error {
-        json payload = check clientEP->get(string `${endpointUrl}/greeting?name=${name}`);
+    resource function get proxy(string name) returns string|error {
+        string payload = check clientEP->get(string `/greeting?name=${name}`);
         return payload;
     }
 }
