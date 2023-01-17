@@ -16,7 +16,7 @@ service / on new http:Listener(9090) {
 
 
     resource function get md5sum(string value) returns string|error {
-        string payload = check clientEP->get(string `/md5sum?value=${value}`);
+        string payload = check md5Ep->get(string `/md5sum?value=${value}`);
         return payload;
     }
 }
