@@ -19,5 +19,8 @@ WORKDIR /app
 # Copy the executable from the builder container
 COPY --from=0 /app/server .
 
+# Use an unprivileged user
+USER 10014
+
 # Set the entrypoint to the executable
 ENTRYPOINT ["./server"]
