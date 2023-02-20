@@ -1,7 +1,7 @@
 import ballerina/http;
 import ballerina/crypto;
 
-configurable string foo = ?
+configurable string foo = ?;
 
 # A service representing a network-accessible API
 # bound to port `9090`.
