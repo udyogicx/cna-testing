@@ -5,7 +5,7 @@ configurable string greeting = "Hello ";
 
 # A service representing a network-accessible API
 # bound to port `9090`.
-service / on new http:Listener(9090) {
+service /greeter on new http:Listener(9090) {
 
     # A resource for generating greetings
     # + name - the input string name
@@ -19,7 +19,7 @@ service / on new http:Listener(9090) {
     }
 }
 
-service / on new http:Listener(9091) {
+service /util on new http:Listener(9091) {
 
     resource function get md5sum(string value) returns string|error {
         byte[] hashedBytes = crypto:hashMd5(value.toBytes());

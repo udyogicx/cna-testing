@@ -1,8 +1,0 @@
-[package]
-org = "mirage"
-name = "multi_protocol_service"
-version = "0.1.0"
-distribution = "2201.1.2"
-
-[build-options]
-observabilityIncluded = true
