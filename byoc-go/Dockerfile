@@ -1,5 +1,5 @@
-# Use the official Go image as the base image
-FROM golang:1.19-alpine
+# Use the official Go image as the base image for the builder
+FROM golang:1.19-alpine AS builder
 
 # Set the working directory to /app
 WORKDIR /app
@@ -17,8 +17,17 @@ FROM alpine:latest
 WORKDIR /app
 
 # Copy the executable from the builder container
-COPY --from=0 /app/server .
+COPY --from=builder /app/server .
 
+# Create a new user with UID 10014
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "/nonexistent" \
+    --shell "/sbin/nologin" \
+    --no-create-home \
+    --uid 10014 \
+    "choreo"
 # Use an unprivileged user
 USER 10014
 
