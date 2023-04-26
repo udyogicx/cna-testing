@@ -7,7 +7,7 @@ import (
 
 func main() {
 	serverMux := http.NewServeMux();
-	serverMux.HandleFunc("/greeter/greet", greet)
+	serverMux.HandleFunc("/hello", greet)
 
 	err := http.ListenAndServe(":9090", serverMux)
 	if err != nil {
